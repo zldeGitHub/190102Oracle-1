@@ -1,0 +1,21 @@
+
+在命令行使用sqlplus编辑Oracle
+1. 在命令行输入 sqlplus /nolog 回车, 盘符显示为 SQL>
+2. 连接到oracle, 语法: conn 账户名/密码@主数据库名 as 账户身份
+	例如: 连接超级管理员账户：
+			conn sys/密码 as sysdba 回车
+		  连接scott测试账户:
+			conn scott/tiger 回车
+		  以管理员身份登录Oracle:
+			conn / as sysdba 回车
+3. 解锁指定的账户, 通常用于解锁scott账户
+	1) 登录sys账户, 或者以管理员身份登入数据库
+	2) 执行sql语句:
+		alter user scott account unlock;
+4. 修改指定账户的密码.
+	语法: alter user 账户名 identified by 新密码;
+
+5. Oracle登录异常.
+	1) 管理员身份登录.
+	2) 卸载当前数据库例程: shutdown
+	3) 重新启动数据库例程: startup
